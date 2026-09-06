@@ -107,18 +107,10 @@ void BLEClass::begin(String name)
         btstack_memory_init();
         btstack_run_loop_init(btstack_run_loop_embedded_get_instance());
 
-        // static const hci_transport_config_uart_t config = {
-        //     HCI_TRANSPORT_CONFIG_UART,
-        //     115200,
-        //     921600, // main baudrate, matches BTstackTeensy's default
-        //     1,      // hardware flow control
-        //     NULL,
-        // };
-        // KDB - fix for debug
         static const hci_transport_config_uart_t config = {
             HCI_TRANSPORT_CONFIG_UART,
             115200,
-            921600, // main baudrate, matches BTstackTeensy's default
+            3000000, //921600, // main baudrate, matches BTstackTeensy's default
             1, // hardware flow control
             NULL,
         };
